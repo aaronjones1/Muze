@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
+import { View } from 'react-native';
 import darkTheme from './theme/penumatonic-dark';
 import theme from './theme/pneumatonic';
 import HomeComponent from './views/home/home';
