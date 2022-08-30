@@ -34,36 +34,34 @@ const theme = createTheme({
     tablet: 768,
   },
   textVariants: {
-    textVariants: {
-      title: {
-        fontFamily: 'Roboto',
-        fontWeight: '100',
-        fontSize: 42,
-        lineHeight: 49,
-      },
-      header: {
-        fontFamily: 'Roboto',
-        fontWeight: '900',
-        fontSize: 24,
-        lineHeight: 28,
-      },
-      subheader: {
-        fontFamily: 'Roboto',
-        fontWeight: '300',
-        fontSize: 21,
-        lineHeight: 25,
-      },
-      body: {
-        fontFamily: 'Roboto',
-        fontSize: 16,
-        lineHeight: 19,
-      },
-      label: {
-        fontFamily: 'Roboto',
-        fontWeight: '900',
-        fontSize: 14,
-        lineHeight: 18,
-      },
+    title: {
+      fontFamily: 'Roboto',
+      fontWeight: '100',
+      fontSize: 42,
+      lineHeight: 49,
+    },
+    header: {
+      fontFamily: 'Roboto',
+      fontWeight: '900',
+      fontSize: 24,
+      lineHeight: 28,
+    },
+    subheader: {
+      fontFamily: 'Roboto',
+      fontWeight: '300',
+      fontSize: 21,
+      lineHeight: 25,
+    },
+    body: {
+      fontFamily: 'Roboto',
+      fontSize: 16,
+      lineHeight: 19,
+    },
+    label: {
+      fontFamily: 'Roboto',
+      fontWeight: '900',
+      fontSize: 14,
+      lineHeight: 18,
     },
   },
 });
