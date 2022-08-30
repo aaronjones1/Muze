@@ -14,9 +14,11 @@ export const palette = {
 };
 
 const theme = createTheme({
+  isDarkMode: false,
   colors: {
     mainBackground: palette.gray_50,
     mainForeground: palette.gray_900,
+    headerBackground: palette.gray_50,
   },
   spacing: {
     x3s: 1,

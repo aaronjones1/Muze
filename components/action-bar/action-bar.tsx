@@ -1,5 +1,4 @@
 import { Canvas, SkFont, Text } from '@shopify/react-native-skia';
-import { View } from 'react-native';
 
 interface ActionBarProps {
   font: SkFont | null;

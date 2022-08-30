@@ -1,20 +1,52 @@
 import { useTheme } from '@shopify/restyle';
-import { Button, Image, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, Image, StatusBar, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Theme } from '../../theme/pneumatonic';
 
-export default function HomeComponent({ navigation }) {
+interface HomeProps {
+  navigation: any;
+}
+
+function getStatusBarStyle(darkMode: boolean): 'light-content' | 'dark-content' {
+  return darkMode ? 'light-content' : 'dark-content';
+}
+
+export const HomeComponent = ({ navigation }: HomeProps) => {
   const theme = useTheme<Theme>();
+  const logoSize = theme.spacing.x2l;
+  const buttonWidth = theme.spacing.x3l;
+  const buttonHeight = theme.spacing.l; 
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView
+      style={{ flex: 1, backgroundColor: theme.colors.mainBackground }}
+    >
+      <StatusBar
+        barStyle={getStatusBarStyle(theme.isDarkMode)}
+        backgroundColor={theme.colors.mainBackground}
+      />
       <Image
         source={require('../../assets/muzelogo.png')}
-        style={{ width: 40, height: 40, marginBottom: 40 }}
+        style={{
+          width: logoSize,
+          height: logoSize,
+          margin: theme.spacing.l,
+          alignSelf: 'center',
+          tintColor: theme.colors.mainForeground,
+        }}
       />
-      <Text style={{ color: theme.colors.mainForeground }}>
-        Welcome to Muze ✨
+      <Text
+        style={{
+          color: theme.colors.mainForeground,
+          alignSelf: 'center',
+          margin: theme.spacing.s,
+        }}
+      >
+        Welcome to Muze ✨ {theme.isDarkMode ? 'Dark Mode' : 'Light Mode'}
       </Text>
       <Button title='Movies' onPress={() => navigation.navigate('Movies')} />
-    </View>
+      {/* style={{ buttonWidth: buttonWidth, buttonHeight: buttonHeight }} */}
+    </SafeAreaView>
   );
-}
+};

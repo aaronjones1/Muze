@@ -4,11 +4,12 @@ import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Switch } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import darkTheme from './theme/penumatonic-dark';
 import theme from './theme/pneumatonic';
 import Box from './theme/pneumatonic-box';
 import Text from './theme/pneumatonic-text';
-import HomeComponent from './views/home/home';
+import { HomeComponent } from './views/home/home';
 import MoviesComponent from './views/movies/movies';
 
 const Stack = createNativeStackNavigator();
@@ -20,26 +21,38 @@ export default function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : theme}>
-      <Box
-        flex={1}
-        flexDirection='column'
-        backgroundColor='mainBackground'
-      >
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName='Home'>
-            <Stack.Screen name='Home' component={HomeComponent} />
-            <Stack.Screen name='Movies' component={MoviesComponent} />
-          </Stack.Navigator>
-          <StatusBar style='auto' />
-        </NavigationContainer>
-        <Text color="mainForeground" variant="body">Some text.</Text>
-        <Box>
-          <Switch
-            value={darkMode}
-            onValueChange={(value: boolean) => setDarkMode(value)}
-          />
+      <SafeAreaProvider>
+        <Box flex={1} flexDirection='column' backgroundColor='mainBackground'>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName='Home'
+              screenOptions={{
+                headerStyle: {
+                  backgroundColor: darkMode
+                    ? darkTheme.colors.headerBackground
+                    : theme.colors.headerBackground,
+                },
+                headerTintColor: darkMode
+                  ? darkTheme.colors.mainForeground
+                  : theme.colors.mainForeground,
+              }}
+            >
+              <Stack.Screen name='Home' component={HomeComponent} />
+              <Stack.Screen name='Movies' component={MoviesComponent} />
+            </Stack.Navigator>
+            <StatusBar style='auto' />
+          </NavigationContainer>
+          <Text color='mainForeground' variant='body'>
+            Some text.
+          </Text>
+          <Box>
+            <Switch
+              value={darkMode}
+              onValueChange={(value: boolean) => setDarkMode(value)}
+            />
+          </Box>
         </Box>
-      </Box>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }
