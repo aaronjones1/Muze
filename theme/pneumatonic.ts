@@ -37,31 +37,27 @@ const theme = createTheme({
   },
   textVariants: {
     title: {
-      fontFamily: 'Roboto',
-      fontWeight: '100',
+      fontFamily: 'Inter_100Thin',
       fontSize: 42,
       lineHeight: 49,
     },
     header: {
-      fontFamily: 'Roboto',
-      fontWeight: '900',
+      fontFamily: 'Inter_900Black',
       fontSize: 24,
       lineHeight: 28,
     },
     subheader: {
-      fontFamily: 'Roboto',
-      fontWeight: '300',
+      fontFamily: 'Inter_300Light',
       fontSize: 21,
       lineHeight: 25,
     },
     body: {
-      fontFamily: 'Roboto',
+      fontFamily: 'Inter_400Regular',
       fontSize: 16,
       lineHeight: 19,
     },
     label: {
-      fontFamily: 'Roboto',
-      fontWeight: '900',
+      fontFamily: 'Inter_900Black',
       fontSize: 14,
       lineHeight: 18,
     },
