@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ThemeProvider, useTheme } from '@shopify/restyle';
+import { ThemeProvider } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Switch } from 'react-native';
