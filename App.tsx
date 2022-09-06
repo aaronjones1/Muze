@@ -59,7 +59,7 @@ export default function App() {
                 <Stack.Screen name='Home' component={HomeComponent} />
                 <Stack.Screen name='Movies' component={MoviesComponent} />
               </Stack.Navigator>
-              <StatusBar style='auto' />
+              <StatusBar style={darkMode ? 'light' : 'dark'} />
             </NavigationContainer>
             <Box flexDirection='row' justifyContent='space-between' alignItems='center'>
               <Text
