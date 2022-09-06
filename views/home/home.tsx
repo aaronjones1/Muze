@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Theme } from '../../theme/pneumatonic';
 import Box from '../../theme/pneumatonic-box';
+import { Switch } from '../../components/switch/switch';
 
 interface HomeProps {
   navigation: any;
@@ -40,17 +41,11 @@ export const HomeComponent = ({ navigation }: HomeProps) => {
       >
         Welcome to Muze ✨
       </Text>
-      {/* <Text
-        style={{
-          color: theme.colors.mainForeground,
-          alignSelf: 'center',
-          margin: theme.spacing.s,
-        }}
-      >
-        (Dark mode is {theme.isDarkMode ? 'on' : 'off'}.)
-      </Text> */}
       <Box style={{ margin: theme.spacing.m }}>
         <Button title='Movies' onPress={() => navigation.navigate('Movies')} />
+      </Box>
+      <Box>
+        <Switch x={0} y={0} size={20} />
       </Box>
     </SafeAreaView>
   );
