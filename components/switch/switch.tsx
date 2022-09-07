@@ -1,4 +1,17 @@
-import { Box, Canvas, FitBox, rect, rrect } from '@shopify/react-native-skia';
+import {
+  Box,
+  BoxShadow,
+  Canvas,
+  FitBox,
+  Group,
+  mix,
+  rect,
+  rrect,
+  runTiming,
+  useComputedValue,
+  useTouchHandler,
+  useValue,
+} from '@shopify/react-native-skia';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../theme/pneumatonic';
 
@@ -22,13 +35,35 @@ interface SwitchProps {
 
 export const Switch = ({ x, y, size }: SwitchProps) => {
   const theme = useTheme<Theme>();
+  const margin = theme.spacing.m;
+  const pressed = useValue(0);
+  const timingDuration = 60;
+  const onTouch = useTouchHandler({
+    onEnd: () => {
+      runTiming(pressed, pressed.current === 1 ? 0 : 1, {
+        duration: timingDuration,
+      });
+    },
+  });
+
+  const xTranslationDistance = 26;
+  const transform = useComputedValue(
+    () => [{ translateX: mix(pressed.current, 0, xTranslationDistance) }],
+    [pressed]
+  );
 
   return (
-    <Canvas>
-      <FitBox src={source} dst={rect(x, y, size, size)}>
+    <Canvas style={{ flex: 1 }} onTouch={onTouch}>
+      <FitBox src={source} dst={rect(x + margin, y + margin, size, size)}>
         <Box box={border} color={theme.colors.mainForeground} />
-        <Box box={surface} color={theme.colors.mainBackground} />
-        <Box box={dot} color={theme.colors.mainForeground} />
+        <Box box={surface} color={theme.colors.mainBackground}>
+          <BoxShadow dx={0} dy={3} blur={3} color='black' inner />
+        </Box>
+        <Group transform={transform}>
+          <Box box={dot} color={theme.colors.mainForeground}>
+            <BoxShadow dx={0} dy={3} blur={3} color='black' />
+          </Box>
+        </Group>
       </FitBox>
     </Canvas>
   );

@@ -1,10 +1,10 @@
 import { useTheme } from '@shopify/restyle';
-import { Button, Image, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { Button, Image, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Switch } from '../../components/switch/switch';
 import { Theme } from '../../theme/pneumatonic';
 import Box from '../../theme/pneumatonic-box';
-import { Switch } from '../../components/switch/switch';
 
 interface HomeProps {
   navigation: any;
@@ -44,8 +44,14 @@ export const HomeComponent = ({ navigation }: HomeProps) => {
       <Box style={{ margin: theme.spacing.m }}>
         <Button title='Movies' onPress={() => navigation.navigate('Movies')} />
       </Box>
-      <Box>
-        <Switch x={0} y={0} size={20} />
+      <Box style={{ flex: 1 }}>
+        {/* <Text style={{ color: theme.colors.mainForeground }}>
+          Above the switch.
+        </Text> */}
+        <Switch x={0} y={0} size={theme.spacing.x4l} />
+        {/* <Text style={{ color: theme.colors.mainForeground }}>
+          Below the switch.
+        </Text> */}
       </Box>
     </SafeAreaView>
   );
