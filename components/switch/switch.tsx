@@ -12,6 +12,7 @@ import {
   useTouchHandler,
   useValue,
 } from '@shopify/react-native-skia';
+import { View } from 'react-native';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../theme/pneumatonic';
 
@@ -53,7 +54,7 @@ export const Switch = ({ x, y, size }: SwitchProps) => {
   );
 
   return (
-    <Canvas style={{ flex: 1 }} onTouch={onTouch}>
+    <Canvas onTouch={onTouch} style={{ flex: 1 }}>
       <FitBox src={source} dst={rect(x + margin, y + margin, size, size)}>
         <Box box={border} color={theme.colors.mainForeground} />
         <Box box={surface} color={theme.colors.mainBackground}>

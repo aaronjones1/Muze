@@ -18,7 +18,10 @@ const theme = createTheme({
   colors: {
     mainBackground: palette.gray_50,
     mainForeground: palette.gray_900,
+    placeholderText: palette.gray_500,
     headerBackground: palette.gray_50,
+    borderColor: palette.gray_500,
+    cursorColor: palette.gray_500,
   },
   spacing: {
     x3s: 1,
@@ -31,6 +34,13 @@ const theme = createTheme({
     x2l: 40,
     x3l: 48,
     x4l: 56,
+  },
+  borderRadii: {
+    full: 9999,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 32,
   },
   breakpoints: {
     phone: 0,

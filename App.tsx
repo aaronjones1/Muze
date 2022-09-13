@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/inter';
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Switch } from 'react-native';
+import { KeyboardAvoidingView, Switch } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import darkTheme from './theme/penumatonic-dark';
 import theme from './theme/pneumatonic';
@@ -61,7 +61,12 @@ export default function App() {
               </Stack.Navigator>
               <StatusBar style={darkMode ? 'light' : 'dark'} />
             </NavigationContainer>
-            <Box flexDirection='row' justifyContent='space-between' alignItems='center'>
+            <Box
+              flexDirection='row'
+              justifyContent='space-between'
+              alignItems='center'
+              flexShrink={0}
+            >
               <Text
                 color='mainForeground'
                 variant='body'
