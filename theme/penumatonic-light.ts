@@ -1,8 +1,8 @@
 import theme, { palette, Theme } from './pneumatonic';
 
-const darkTheme: Theme = {
+const lightTheme: Theme = {
   ...theme,
-  isDarkMode: true,
+  isDarkMode: false,
   colors: {
     ...theme.colors,
     mainBackground: palette.gray_800,
@@ -14,4 +14,4 @@ const darkTheme: Theme = {
   },
 };
 
-export default darkTheme;
+export default lightTheme;

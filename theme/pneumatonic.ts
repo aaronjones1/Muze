@@ -14,13 +14,13 @@ export const palette = {
 };
 
 const theme = createTheme({
-  isDarkMode: false,
+  isDarkMode: true,
   colors: {
     mainBackground: palette.gray_50,
     mainForeground: palette.gray_900,
     placeholderText: palette.gray_500,
     headerBackground: palette.gray_50,
-    borderColor: palette.gray_500,
+    borderColor: palette.gray_50,
     cursorColor: palette.gray_500,
   },
   spacing: {

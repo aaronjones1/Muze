@@ -2,6 +2,7 @@ import { useTheme } from '@shopify/restyle';
 import { StatusBar } from 'expo-status-bar';
 import { KeyboardAvoidingView, Pressable, Text, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { MuzeInput } from '../../components/muze-input/muze-input';
 import { MuzeLogo } from '../../components/muze-logo/muze-logo';
 import { Theme } from '../../theme/pneumatonic';
 import Box from '../../theme/pneumatonic-box';
@@ -26,11 +27,14 @@ export const HomeComponent = ({ navigation }: HomeProps) => {
         <MuzeLogo color={theme.colors.mainForeground} />
       </Box>
       <Text
-        style={[theme.textVariants.subheader, {
-          color: theme.colors.mainForeground,
-          alignSelf: 'center',
-          margin: theme.spacing.s,
-        }]}
+        style={[
+          theme.textVariants.subheader,
+          {
+            color: theme.colors.mainForeground,
+            alignSelf: 'center',
+            margin: theme.spacing.s,
+          },
+        ]}
       >
         Welcome to Muze ✨
       </Text>
@@ -45,30 +49,18 @@ export const HomeComponent = ({ navigation }: HomeProps) => {
             alignItems: 'center',
           }}
         >
-          <Text style={[theme.textVariants.body, { color: theme.colors.mainBackground }]}>Movies</Text>
+          <Text
+            style={[
+              theme.textVariants.body,
+              { color: theme.colors.mainBackground },
+            ]}
+          >
+            Movies
+          </Text>
         </Pressable>
       </Box>
       <KeyboardAvoidingView style={{ flex: 1 }} behavior='height'>
-        <Box flex={1} flexShrink={0}>
-          <TextInput
-            style={[
-              theme.textVariants.body,
-              {
-                flexShrink: 0,
-                color: theme.colors.mainForeground,
-                margin: theme.spacing.m,
-                paddingHorizontal: theme.spacing.m,
-                paddingVertical: theme.spacing.s,
-                borderWidth: 1,
-                borderRadius: theme.borderRadii.full,
-                borderColor: theme.colors.borderColor,
-              },
-            ]}
-            cursorColor={theme.colors.cursorColor}
-            placeholder='Type'
-            placeholderTextColor={theme.colors.placeholderText}
-          ></TextInput>
-        </Box>
+        <MuzeInput x={0} y={0} height={24} width={56} />
       </KeyboardAvoidingView>
     </SafeAreaView>
   );

@@ -12,7 +12,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Switch } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import darkTheme from './theme/penumatonic-dark';
+import lightTheme from './theme/penumatonic-light';
 import theme from './theme/pneumatonic';
 import Box from './theme/pneumatonic-box';
 import Text from './theme/pneumatonic-text';
@@ -36,7 +36,7 @@ export default function App() {
     return null;
   } else {
     return (
-      <ThemeProvider theme={darkMode ? darkTheme : theme}>
+      <ThemeProvider theme={darkMode ? lightTheme : theme}>
         <SafeAreaProvider>
           <Box flex={1} flexDirection='column' backgroundColor='mainBackground'>
             <NavigationContainer>
@@ -45,11 +45,11 @@ export default function App() {
                 screenOptions={{
                   headerStyle: {
                     backgroundColor: darkMode
-                      ? darkTheme.colors.headerBackground
+                      ? lightTheme.colors.headerBackground
                       : theme.colors.headerBackground,
                   },
                   headerTintColor: darkMode
-                    ? darkTheme.colors.mainForeground
+                    ? lightTheme.colors.mainForeground
                     : theme.colors.mainForeground,
                   headerTitleStyle: {
                     fontFamily: theme.textVariants.subheader.fontFamily,

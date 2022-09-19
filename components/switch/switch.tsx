@@ -10,9 +10,8 @@ import {
   runTiming,
   useComputedValue,
   useTouchHandler,
-  useValue,
+  useValue
 } from '@shopify/react-native-skia';
-import { View } from 'react-native';
 import { useTheme } from '@shopify/restyle';
 import { Theme } from '../../theme/pneumatonic';
 
